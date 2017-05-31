@@ -4,5 +4,5 @@ simple size animation,
 
 (using jQuery)
 
-##Comming features:
+## Comming features:
 - responsive design
