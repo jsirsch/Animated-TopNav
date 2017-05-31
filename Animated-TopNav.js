@@ -4,8 +4,8 @@ function animatedTopNav(paddingSmall, paddingLarge){
     // anitmatedTopNav-helper
     // absolute distance to prevent hiding of content
     
-    $('.animatedTopNav').after('<div class="topnav-helper"></div>');
-    $('.animatedTopNav-helper').css('background-color', '#2f2f2f');
+    $('.animatedTopNav').after('<div class="animatedTopNav-helper"></div>');
+    $('.animatedTopNav-helper').css('background-color', '#2f2f2f').css('width','inherit');
 
     var fontSize = $('.animatedTopNav').children().css('font-size');
     var paddingTopnavHelper = parseInt(paddingLarge)*2 + parseInt(fontSize) + 7; //FAULT: Fix "7"!
