@@ -48,6 +48,16 @@ function animatedTopNav(paddingSmall, paddingLarge){
                 'paddingBottom': paddingSmall
             },'fast');
             
+            $('.container').css({
+                backgroundColor: 'rgba(156,6,48,0.1)'
+            });
+            console.log('...');
+            /*
+            $('.animatedTopNav').css({
+                'opacity': '0',
+                'transition': 'opacity 0.5s ease-out 0s'
+            })
+            */
         } else if (document.body.scrollTop <= reduceAtDistance && pageAtTop === false){
             pageAtTop = true;
             
