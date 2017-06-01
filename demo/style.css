@@ -6,6 +6,11 @@ body{
     margin: 0;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    animation: fading 0.5s;
+}
+@keyframes fading{
+    0% {opacity:0}
+    100% {opacity:1}
 }
 
 .animatedTopNav {
@@ -15,6 +20,8 @@ body{
     background-color: #fff;
     /* background-color: aqua; */
     overflow: hidden; /* edit? */
+    -moz-box-shadow:    0px 1px 10px;
+    -webkit-box-shadow: 0px 1px 10px;
     box-shadow: 0px 1px 10px;
     
     visibility: visible;
@@ -26,16 +33,30 @@ body{
     display: block;
     background-color: inherit;
     color: #454545;
+    /*color: #ba3b3b;*/
     text-align: center;
     padding: 30px 60px;
     text-decoration: none;
     font-size: 15px;
-}
-a, a:visited, a:hover, a:focus {
-    color: inherit;
+    transition-property: background-color, color, -moz-box-shadow, -webkit-box-shadow, box-shadow;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
 }
 .animatedTopNav a:hover {
+    transition-property: background-color, color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
     background-color: #e8e8e8;
+    color: #1c1c1c;
+}
+
+.animatedTopNav a:active {
+    transition-property: -moz-box-shadow, -webkit-box-shadow, box-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    -moz-box-shadow:    inset 0 0 2px #000000;
+    -webkit-box-shadow: inset 0 0 2px #000000;
+    box-shadow:         inset 0 0 2px #000000;
 }
 
 /* Add a color to the active/current link */
@@ -57,10 +78,4 @@ a, a:visited, a:hover, a:focus {
     max-width: 800px;
     margin: 0 auto;
     padding-top: 30px;
-    
-    transition: max-width 2s 0s eas-out;
-    
-    background-color: rgba(23,13,226,1);
 }
-
-#test { background-color: rgba(0,0,0,0.2); height: 100px; width: 100px; font-size: 0.9em; padding: 20px; }
