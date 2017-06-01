@@ -49,9 +49,15 @@ function animatedTopNav(paddingSmall, paddingLarge){
             },'fast');
             
             $('.container').css({
+                'max-width': '900px'
+            });
+            
+            /*$('.container').css({
+                
                 backgroundColor: 'rgba(156,6,48,0.1)'
             });
             console.log('...');
+            */
             /*
             $('.animatedTopNav').css({
                 'opacity': '0',

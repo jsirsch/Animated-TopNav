@@ -58,6 +58,8 @@ a, a:visited, a:hover, a:focus {
     margin: 0 auto;
     padding-top: 30px;
     
+    transition: max-width 2s 0s eas-out;
+    
     background-color: rgba(23,13,226,1);
 }
 
