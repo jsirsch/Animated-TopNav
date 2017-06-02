@@ -28,6 +28,11 @@ body{
     opacity: 1;
 }
 
+/* toggle class */
+.animatedTopNav.toggle{
+    ...
+}
+
 .animatedTopNav a {
     float: left;
     display: block;
@@ -42,7 +47,13 @@ body{
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
 }
-.animatedTopNav a:hover {
+
+/* toggle class */
+.animatedTopNav.toggle a{
+    ...
+}
+
+.animatedTopNav a:hover,.animatedTopNav.toggle a:hover { /*,.animatedTopNav.toggle*/ /*check syntax*/
     transition-property: background-color, color;
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
@@ -50,19 +61,13 @@ body{
     color: #1c1c1c;
 }
 
-.animatedTopNav a:active {
+.animatedTopNav a:active,.animatedTopNav.toggle a:active { /*,.animatedTopNav.toggle*/ /*check syntax*/
     transition-property: -moz-box-shadow, -webkit-box-shadow, box-shadow;
     transition-duration: 0.1s;
     transition-timing-function: linear;
     -moz-box-shadow:    inset 0 0 2px #000000;
     -webkit-box-shadow: inset 0 0 2px #000000;
     box-shadow:         inset 0 0 2px #000000;
-}
-
-/* Add a color to the active/current link */
-.animatedTopNav a.active {
-    background-color: #4CAF50;
-    color: white;
 }
 
 .picture{
