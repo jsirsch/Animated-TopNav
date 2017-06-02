@@ -58,13 +58,20 @@
 
         <!-- Include Frameworks -->
         <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="../Animated-TopNav.js"></script>
+        <!--<script type="text/javascript" src="../Animated-TopNav.js"></script>-->
+        <script type="text/javascript" src="../Animated-TopNav-htmlClassBased.js"></script>
         
         <!-- Init Functions -->
         <script type="text/javascript">
-            $(document).ready(function(){
+            /*$(document).ready(function(){
                 animatedTopNav('10px', '60px');
+            });*/
+
+            // no parameters in html-class based version
+            $(document).ready(function(){
+                animatedTopNav();
             });
+
         </script>
     </body>
 </html>
