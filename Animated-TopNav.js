@@ -1,23 +1,30 @@
 // Animated-TopNav
 
-function animatedTopNav(paddingSmall, paddingLarge){
+function animatedTopNav(paddingSmall, paddingLarge, removeTopNavHelper){
     // anitmatedTopNav-helper
     // absolute distance to prevent hiding of content
     
-    $('.animatedTopNav').after('<div class="animatedTopNav-helper"></div>');
-    $('.animatedTopNav-helper').css('background-color', '#2f2f2f').css('width','inherit');
-
+    if(removeTopNavHelper === false){
+        $('.animatedTopNav').after('<div class="animatedTopNav-helper"></div>');
+        $('.animatedTopNav-helper').css('background-color', '#414141').css('width','inherit');
+    }
+    
     var fontSize = $('.animatedTopNav').children().css('font-size');
-    var paddingTopnavHelper = parseInt(paddingLarge)*2 + parseInt(fontSize) + 7; //FAULT: Fix "7"!
-
-    $('.animatedTopNav-helper').css('padding-top', paddingTopnavHelper+"px");
-
-
+    
+    //is needed for reduceAtDistance
+    var paddingTopNavHelper = parseInt(paddingLarge)*2 + parseInt(fontSize) + 7; //FAULT: Fix "7"!
+    
+    if(removeTopNavHelper === false){
+        $('.animatedTopNav-helper').css('padding-top', paddingTopNavHelper+"px");
+    }
+    
     // Scroll Animation
 
     //calculate reduceAtDistance
-    var reduceAtDistance = paddingTopnavHelper-parseInt(paddingSmall)*2; //theoretical you can subtract the font size
+    var reduceAtDistance = paddingTopNavHelper-parseInt(paddingSmall)*2; //theoretical you can subtract the font size
     
+    var animatedTopNavShadow = $('.animatedTopNav').css('box-shadow');
+    console.log(animatedTopNavShadow);
     // Init size at page reload so it is overwrites the CSS propertys
     var pageAtTop;
     
@@ -35,6 +42,15 @@ function animatedTopNav(paddingSmall, paddingLarge){
             'paddingBottom': paddingLarge
         });
         
+        if(removeTopNavHelper === true){
+            $('.animatedTopNav').css({
+                backgroundColor: 'rgba(0,0,0,0)',
+                'box-shadow': 'none'
+            }).children().css({
+                color: 'white'
+            });
+        }
+        
         pageAtTop = true;
     }
     
@@ -48,6 +64,12 @@ function animatedTopNav(paddingSmall, paddingLarge){
                 'paddingBottom': paddingSmall
             },'fast');
             
+            if(removeTopNavHelper === true){
+                $('.animatedTopNav').animate({
+                    'box-shadow': animatedTopNavShadow
+                });
+            }
+            console.log('kleiner...');
         } else if (document.body.scrollTop <= reduceAtDistance && pageAtTop === false){
             pageAtTop = true;
             
@@ -55,6 +77,7 @@ function animatedTopNav(paddingSmall, paddingLarge){
                 'paddingTop': paddingLarge,
                 'paddingBottom': paddingLarge
             },'fast');
+            console.log('größer...');
         }
     });
 }
