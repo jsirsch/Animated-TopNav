@@ -59,12 +59,6 @@ body{
     box-shadow:         inset 0 0 2px #000000;
 }
 
-/* Add a color to the active/current link */
-.animatedTopNav a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
 .picture{
     padding: 200px 0px;
     text-align: center;
